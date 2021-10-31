@@ -13,7 +13,7 @@ class Api {
     var url = Uri.parse('$BASE_URL/$endPoint');
     final response = await http.post(
       url,
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json', 'id':'620710127'},
       body: json.encode(params),
     );
 
@@ -42,7 +42,7 @@ class Api {
     String queryString = Uri(queryParameters: queryParams).query;
     var url = Uri.parse('$BASE_URL/$endPoint?$queryString');
 
-    final response = await http.get(url);
+    final response = await http.get(url,headers: {'id':'620710127'});
 
     if (response.statusCode == 200) {
       // แปลง text ที่มีรูปแบบเป็น JSON ไปเป็น Dart's data structure (List/Map)
